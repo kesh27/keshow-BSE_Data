@@ -1,6 +1,8 @@
 from StringIO import StringIO
 from zipfile import ZipFile
 from urllib import urlopen
+import redis
+from etc import settings
 
 equity_url = "https://www.bseindia.com/download/BhavCopy/Equity/EQ190919_CSV.ZIP"
 response = urlopen(equity_url)
@@ -31,4 +33,17 @@ for row in rows:
     data = (equity_close_value - equity_open_value, equity_code, equity_name, equity_open_value, equity_high_value, equity_low_value, equity_close_value)
     data_list.append(data)
 data_list = sorted(data_list, reverse=True)
-print(data_list)
+
+redis_conn = redis.Redis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB_ID)
+
+for data in data_list:
+    equity_code = data[1]
+    equity_name = data[2]
+    equity_open_value = data[3]
+    equity_high_value = data[4]
+    equity_low_value = data[5]
+    equity_close_value = data[6]
+    equity_data = {"code": equity_code, "open_value": equity_open_value, "high_value": equity_high_value, \
+    "low_value": equity_low_value, "close_value": equity_close_value}
+    redis_conn.set(equity_name, equity_data)
+    print(equity_data)
