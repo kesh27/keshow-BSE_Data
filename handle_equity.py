@@ -18,6 +18,8 @@ equity_high_index = columns.index("HIGH")
 equity_low_index = columns.index("LOW")
 equity_close_index = columns.index("CLOSE")
 
+# Tuple structure = (price_diff, code, name, open, high, low, close)
+data_list = []
 for row in rows:
     values = row.split(",")
     equity_code = values[equity_code_index]
@@ -26,5 +28,7 @@ for row in rows:
     equity_high_value = float(values[equity_high_index])
     equity_low_value = float(values[equity_low_index])
     equity_close_value = float(values[equity_close_index])
-    data = {"code": equity_code, "name": equity_name, "open_value": equity_open_value, "high_value": equity_high_value, "low_value": equity_low_value, "close_value": equity_close_value}
-    print(data)
+    data = (equity_close_value - equity_open_value, equity_code, equity_name, equity_open_value, equity_high_value, equity_low_value, equity_close_value)
+    data_list.append(data)
+data_list = sorted(data_list, reverse=True)
+print(data_list)
