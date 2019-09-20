@@ -38,9 +38,6 @@ data_list = sorted(data_list, reverse=True)
 top_ten_equity = []
 for count in range(0,10):
     top_ten_equity.append(data_list[count][2])
-    print(data_list[count][2])
-
-# print(data_list[0][2],data_list[1][2],data_list[2][2],data_list[3][2],data_list[4][2],data_list[5][2],data_list[6][2],data_list[7][2],data_list[8][2],data_list[9][2])
 
 redis_conn = redis.Redis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB_ID)
 
