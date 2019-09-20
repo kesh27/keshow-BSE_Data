@@ -88,3 +88,39 @@ body {
     max-width: 1060px;
     margin: auto;
 }
+
+.search-container {
+    position: relative;
+    margin: 11px;
+}
+
+.search-input {
+    width: 210px;
+    height: 35px;
+    padding-left: 30px;
+    color: rgb(136, 136, 136);
+    border-radius: 3px;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+}
+
+.search-glyph {
+    width: 13px;
+    position: absolute;
+    left: 10px;
+    top: 12px;
+}
+
+.header-container {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 60px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding: 0px 10px;
+}

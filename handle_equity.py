@@ -6,7 +6,7 @@ from etc import settings
 import json
 from datetime import datetime
 
-equity_url = "https://www.bseindia.com/download/BhavCopy/Equity/EQ190919_CSV.ZIP"
+equity_url = "https://www.bseindia.com/download/BhavCopy/Equity/EQ200919_CSV.ZIP"
 response = urlopen(equity_url)
 equity_file = ZipFile(StringIO(response.read()))
 csv_file = equity_file.namelist()[0]

@@ -23,6 +23,22 @@ $(document).ready(function() {
     
     let set_equity_cards = function(results_mini) {
         $('#equity-cards').empty()
+        set_table_header()
+        for(let count = 0; count<results_mini.length; count++) {
+            const result = results_mini[count]
+            let equity_mini = JSON.parse(result.equity_mini)
+            const name = "<div class='equity-card-data first-element'>"+ result.name +"</div>"
+            const code = "<div class=equity-card-data>"+ equity_mini.code +"</div>"
+            const open_value = "<div class=equity-card-data>&#8377;"+ equity_mini.open_value.toFixed(2) +"</div>"
+            const high_value = "<div class=equity-card-data>&#8377;"+ equity_mini.high_value.toFixed(2) +"</div>"
+            const low_value = "<div class=equity-card-data>&#8377;"+ equity_mini.low_value.toFixed(2) +"</div>"
+            const close_value = "<div class=equity-card-data>&#8377;"+ equity_mini.close_value.toFixed(2) +"</div>"
+            const card_elem = "<div class=equity-card>"+ name + code + open_value + high_value + low_value + close_value +"</div>"
+            $('#equity-cards').append(card_elem)
+        }
+    }
+
+    let set_table_header = function() {
         const name = "<div class='equity-card-data first-element'>NAME</div>"
         const code = "<div class=equity-card-data>CODE</div>"
         const open_value = "<div class=equity-card-data>OPEN</div>"
@@ -31,17 +47,5 @@ $(document).ready(function() {
         const close_value = "<div class=equity-card-data>CLOSE</div>"
         const card_elem = "<div class='equity-card table-header'>"+ name + code + open_value + high_value + low_value + close_value +"</div>"
         $('#equity-cards').append(card_elem)
-        for(let count = 0; count<results_mini.length; count++) {
-            const result = results_mini[count]
-            let equity_mini = JSON.parse(result.equity_mini)
-            const name = "<div class='equity-card-data first-element'>"+ result.name +"</div>"
-            const code = "<div class=equity-card-data>"+ equity_mini.code +"</div>"
-            const open_value = "<div class=equity-card-data>&#8377;"+ equity_mini.open_value +"</div>"
-            const high_value = "<div class=equity-card-data>&#8377;"+ equity_mini.high_value +"</div>"
-            const low_value = "<div class=equity-card-data>&#8377;"+ equity_mini.low_value +"</div>"
-            const close_value = "<div class=equity-card-data>&#8377;"+ equity_mini.close_value +"</div>"
-            const card_elem = "<div class=equity-card>"+ name + code + open_value + high_value + low_value + close_value +"</div>"
-            $('#equity-cards').append(card_elem)
-        }
     }
 });
