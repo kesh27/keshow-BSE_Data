@@ -4,6 +4,7 @@ from urllib import urlopen
 import redis
 from etc import settings
 import json
+from datetime import datetime
 
 equity_url = "https://www.bseindia.com/download/BhavCopy/Equity/EQ190919_CSV.ZIP"
 response = urlopen(equity_url)
@@ -52,3 +53,4 @@ for data in data_list:
     "low_value": equity_low_value, "close_value": equity_close_value}
     redis_conn.set(equity_name, json.dumps(equity_data))
 redis_conn.set("top_ten_equity", json.dumps(top_ten_equity))
+redis_conn.set("last_updated_on", datetime.now().isoformat())

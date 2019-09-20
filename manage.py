@@ -21,7 +21,8 @@ class EquityResultsWebService(object):
             data = REDIS_CON.get(equity)
             result = {"name": equity, "equity_mini": data}
             results.append(result)
-        return
+        response = json.dumps({"last_updated_on": REDIS_CON.get("last_updated_on"), "results_mini": results})
+        return response
 
 if __name__ == '__main__':
     conf = {
