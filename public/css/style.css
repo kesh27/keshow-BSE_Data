@@ -1,3 +1,90 @@
 body {
     background-color: #f4f6f8;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial;
+}
+
+.last-update-timestamp {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 60px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding: 0px 10px;
+}
+
+.timestamp-container {
+    font-size: 11px;
+    color: rgb(107, 124, 147);
+}
+
+.label {
+    line-height: 19px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.datetime {
+    font-weight: 500;
+    font-size: 17px;
+    color: rgb(51, 51, 51);
+}
+
+.equity-card {
+    height: 76px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 14px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(235, 243, 235);
+    border-image: initial;
+    margin: 0 auto auto;
+}
+
+.equity-card:hover {
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.09);
+    margin: auto auto 10px;
+}
+
+.table-header {
+    height: 38px;
+    margin: 0 !important;
+}
+
+.table-header:hover {
+    box-shadow: 0 0 0 0;
+}
+
+.equity-card-data {
+    font-weight: 500;
+    color: #555;
+    width: 16%;
+}
+
+.first-element {
+    width: 20% !important;
+    padding-left: 4%;
+}
+
+.equity-heading {
+    background-color: #fdfdfd;
+    color: #6f7c87;
+    margin-bottom: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #e8e8e8;
+    border-radius: 1px;
+}
+
+.container {
+    min-height: 100vh;
+    max-width: 1060px;
+    margin: auto;
 }

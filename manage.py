@@ -18,8 +18,7 @@ class EquityResultsWebService(object):
         top_ten_equities = json.loads(top_ten_equities)
         results = []
         for equity in top_ten_equities:
-            data = REDIS_CON.get(equity)
-            result = {"name": equity, "equity_mini": data}
+            result = {"name": equity, "equity_mini": REDIS_CON.get(equity)}
             results.append(result)
         response = json.dumps({"last_updated_on": REDIS_CON.get("last_updated_on"), "results_mini": results})
         return response
