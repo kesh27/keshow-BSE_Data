@@ -43,7 +43,7 @@ try:
     for count in range(0,10):
         top_ten_equity.append(data_list[count][2])
 
-    redis_conn = redis.Redis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB_ID)
+    redis_conn = redis.Redis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB_ID, password=settings.REDIS_PASSWORD)
 
     for data in data_list:
         equity_code = data[1]
