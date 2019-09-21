@@ -10,6 +10,7 @@ $(document).ready(function() {
             data: {"equity_name": equity_name},
             success: function(response) {
                 response = JSON.parse(response)
+                console.log(response)
                 set_values(response)
             }
         })
