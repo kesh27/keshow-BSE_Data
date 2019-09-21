@@ -1,1 +1,2 @@
-web: env PYTHONPATH=".etc.environment" : python manage.py runserver
+web: python manage.py runserver
+env: PYTHONPATH=".etc.environment"
