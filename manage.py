@@ -13,7 +13,6 @@ class EquityResults(object):
 class EquityResultsWebService(object):
 
     def __init__(self):  
-        print("type", type(settings.REDIS_HOST))
         self.redis_con = redis.Redis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB_ID, password=settings.REDIS_PASSWORD)
     
     def GET(self, equity_name = None):
