@@ -42,6 +42,8 @@ if __name__ == '__main__':
         }
     }
 
+    cherrypy.config.update({'server.socket_port': settings.APP_PORT})
+
     webapp = EquityResults()
     webapp.generator = EquityResultsWebService()
     cherrypy.quickstart(webapp, '/', conf)
