@@ -1,14 +1,26 @@
 $(document).ready(function() {
-    $.ajax({
-        type: "GET",
-        url: "/generator",
-        success: function(response) {
-            response = JSON.parse(response)
-            console.log(response)
-            set_values(response)
-        }
-    })
     
+    let get_equity_data = function(equity_name) {
+        if(equity_name) 
+            equity_name = equity_name.toUpperCase()
+        $.ajax({
+            type: "GET",
+            url: "/generator",
+            data: {"equity_name": equity_name},
+            success: function(response) {
+                response = JSON.parse(response)
+                set_values(response)
+            }
+        })
+    }
+
+    get_equity_data()
+
+    $('#search').on("input", function() {
+        value = $('#search').val()
+        get_equity_data(value)
+    });
+
     let set_values = function(data) {
         var updated_datetime = new Date(data.last_updated_on)
         updated_datetime = updated_datetime.toString()

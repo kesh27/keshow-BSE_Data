@@ -27,7 +27,7 @@ data_list = []
 for row in rows:
     values = row.split(",")
     equity_code = values[equity_code_index].strip()
-    equity_name = values[equity_name_index].strip()
+    equity_name = values[equity_name_index].strip().upper()
     equity_open_value = float(values[equity_open_index].strip())
     equity_high_value = float(values[equity_high_index].strip())
     equity_low_value = float(values[equity_low_index].strip())
