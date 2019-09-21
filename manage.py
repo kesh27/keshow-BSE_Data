@@ -4,6 +4,7 @@ import redis
 import settings
 import json
 
+print("settings.REDIS_HOST",settings.REDIS_HOST)
 REDIS_CON = redis.Redis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB_ID)
 
 class EquityResults(object):
