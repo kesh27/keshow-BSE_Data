@@ -15,16 +15,12 @@ class EquityResults(object):
 class EquityResultsWebService(object):
     def GET(self, equity_name = None):
         results = []
+        equities_list = REDIS_CON.get("top_ten_equity")
+        equities_list = json.loads(equities_list)
         if equity_name:
-            equity_mini = REDIS_CON.get(equity_name)
-            if equity_mini:
-                result = {"name": equity_name, "equity_mini": equity_mini}
-                results.append(result)
-                response = json.dumps({"last_updated_on": REDIS_CON.get("last_updated_on"), "results_mini": results})
-                return response
-        top_ten_equities = REDIS_CON.get("top_ten_equity")
-        top_ten_equities = json.loads(top_ten_equities)       
-        for equity in top_ten_equities:
+            equity_name += "*"
+            equities_list = REDIS_CON.keys(equity_name)     
+        for equity in equities_list:
             result = {"name": equity, "equity_mini": REDIS_CON.get(equity)}
             results.append(result)
         response = json.dumps({"last_updated_on": REDIS_CON.get("last_updated_on"), "results_mini": results})
