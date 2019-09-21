@@ -7,6 +7,7 @@ import json
 from datetime import datetime
 
 try: 
+    print("settings.REDIS_HOST",settings.REDIS_HOST)
     date = datetime.today().strftime('%d%m%y')
     equity_url = "https://www.bseindia.com/download/BhavCopy/Equity/EQ{0}_CSV.ZIP".format(date)
     response = urlopen(equity_url)

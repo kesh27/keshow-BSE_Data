@@ -1,8 +1,9 @@
 $(document).ready(function() {
     
     let get_equity_data = function(equity_name) {
-        if(equity_name) 
+        if(equity_name){
             equity_name = equity_name.toUpperCase()
+        }
         $.ajax({
             type: "GET",
             url: "/generator",

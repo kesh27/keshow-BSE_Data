@@ -1,6 +1,6 @@
 body {
     background-color: #f4f6f8;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial;
+    font-family: 'Avenir', 'Lato', sans-serif, Arial;
 }
 
 .last-update-timestamp {
@@ -47,17 +47,23 @@ body {
     border-color: rgb(235, 243, 235);
     border-image: initial;
     margin: 0 auto auto;
+    transition: 100ms ease;
 }
 
 .equity-card:hover {
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.09);
-    margin: auto auto 10px;
+    margin: 3px 0px 10px 0px;
 }
 
 .table-header {
     height: 38px;
     margin: 0 !important;
+    background-color: #efefef;
 }
+
+.table-header >div {
+    font-weight: 800;
+} 
 
 .table-header:hover {
     box-shadow: 0 0 0 0;
@@ -98,12 +104,14 @@ body {
     width: 210px;
     height: 35px;
     padding-left: 30px;
-    color: rgb(136, 136, 136);
-    border-radius: 3px;
+    color: rgb(62, 62, 62);
+    border-radius: 5px;
     border-width: 0px;
     border-style: initial;
     border-color: initial;
     border-image: initial;
+    font-size: 14px;
+    outline: none;
 }
 
 .search-glyph {
