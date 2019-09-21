@@ -7,8 +7,8 @@ import json
 from datetime import datetime
 
 try: 
-    # date = datetime.today().strftime('%d%m%y')
-    date = '200919'
+    date = datetime.today().strftime('%d%m%y')
+    # date = '200919'
     equity_url = "https://www.bseindia.com/download/BhavCopy/Equity/EQ{0}_CSV.ZIP".format(date)
     response = urlopen(equity_url)
     equity_file = ZipFile(StringIO(response.read()))
