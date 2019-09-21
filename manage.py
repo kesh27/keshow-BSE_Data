@@ -1,7 +1,7 @@
 import cherrypy
 import os, os.path
 import redis
-from etc import settings
+import settings
 import json
 
 REDIS_CON = redis.Redis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB_ID)
