@@ -40,7 +40,8 @@ try:
     data_list = sorted(data_list, reverse=True)
 
     top_ten_equity = []
-    for count in range(0,10):
+    last = min(10,len(data_list))
+    for count in range(0,last):
         top_ten_equity.append(data_list[count][2])
 
     redis_conn = redis.Redis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB_ID, password=settings.REDIS_PASSWORD)
