@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    
+
     let get_equity_data = function(equity_name) {
         if(equity_name){
             equity_name = equity_name.toUpperCase()
@@ -17,9 +17,15 @@ $(document).ready(function() {
 
     get_equity_data()
 
-    $('#search').on("input", function() {
+    let get_equity_data_with_name =  function() {
         value = $('#search').val()
         get_equity_data(value)
+    };
+
+    let typing_timer = null;
+    $('#search').keydown(function(){
+        clearTimeout(typing_timer); 
+        typing_timer = setTimeout(get_equity_data_with_name, 500)
     });
 
     let set_values = function(data) {
