@@ -26,7 +26,6 @@ class EquityResultsWebService(object):
             result = {"name": equity, "equity_mini": self.redis_con.get(equity)}
             results.append(result)
         response = json.dumps({"last_updated_on": self.redis_con.get("last_updated_on"), "results_mini": results})
-        response = json.dumps({"last_updated_on": "2019-09-22T02:10:06.358036", "results_mini": results})
         return response
 
 if __name__ == '__main__':
