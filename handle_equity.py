@@ -6,11 +6,18 @@ import settings
 import json
 from datetime import datetime
 
-try: 
+
+
+
+def main():
     date = datetime.today().strftime('%d%m%y')
     # date = '200919'
     equity_url = "https://www.bseindia.com/download/BhavCopy/Equity/EQ{0}_CSV.ZIP".format(date)
-    response = urlopen(equity_url)
+    try:
+        response = urlopen(equity_url)
+    except:
+        print("error loading url "+equity_url)
+        return
     equity_file = ZipFile(StringIO(response.read()))
     csv_file = equity_file.namelist()[0]
 
@@ -59,5 +66,5 @@ try:
     redis_conn.set("top_ten_equity", json.dumps(top_ten_equity))
     redis_conn.set("last_updated_on", datetime.now().isoformat())
 
-except:
-    None
+if __name__=='__main__':
+    main()
